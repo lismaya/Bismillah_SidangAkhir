@@ -14,7 +14,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view("users.create");
+
+        $users = \App\User::paginate(10);
+        return view("users.index", ['users'=>$users]);
     }
 
     /**
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view("users.create");
+        return view("users.tambah");
     }
 
     /**
@@ -45,12 +47,12 @@ class UserController extends Controller
         $new_user->jenis_kelamin=$request->get('jenis_kelamin');
         $new_user->tanggal_lahir=$request->get('tanggal_lahir');
         $new_user->email=$request->get('email');
-        $new_user->level_id=$request->get('level_id');
+        $new_user->level_id=json_encode($request->get('level_id'));
         $new_user->password=\Hash::make($request->get('password'));
 
         $new_user->save();
 
-        return redirect()->route('users.create')->with('status','User successfully created.');
+        return redirect()->route('users.index')->with('status','User successfully created.');
 
     }
 

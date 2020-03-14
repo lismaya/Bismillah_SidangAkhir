@@ -148,7 +148,7 @@
 
     <!-- Main content -->
     <section class="content">
-          @yield("content")
+          @yield("content1")
     </section>
     <!-- /.content -->
   </div>
