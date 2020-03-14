@@ -36,6 +36,22 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $new_user = new \App\User;
+
+        $new_user->name= $request->get('name');
+        $new_user->username=$request->get('username');
+        $new_user->alamat=$request->get('alamat');
+        $new_user->nomor_telephon=$request->get('nomor_telephon');
+        $new_user->jenis_kelamin=$request->get('jenis_kelamin');
+        $new_user->tanggal_lahir=$request->get('tanggal_lahir');
+        $new_user->email=$request->get('email');
+        $new_user->level_id=$request->get('level_id');
+        $new_user->password=\Hash::make($request->get('password'));
+
+        $new_user->save();
+
+        return redirect()->route('users.create')->with('status','User successfully created.');
+
     }
 
     /**
