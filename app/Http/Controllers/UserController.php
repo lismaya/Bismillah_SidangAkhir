@@ -47,7 +47,7 @@ class UserController extends Controller
         $new_user->jenis_kelamin=$request->get('jenis_kelamin');
         $new_user->tanggal_lahir=$request->get('tanggal_lahir');
         $new_user->email=$request->get('email');
-        $new_user->level_id=json_encode($request->get('level_id'));
+        $new_user->level_id=$request->get('level_id');
         $new_user->password=\Hash::make($request->get('password'));
 
         $new_user->save();
@@ -75,7 +75,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+          $user = \App\User::findOrFail($id);
+
+          return view("users.edit", ['user'=>$user]);
     }
 
     /**
@@ -88,6 +90,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = \App\User::findOrFail($id);
+
+        $user->name = $request->get('name');
+        $user->level_id = $request->get('level_id');
+        $user->alamat = $request->get('alamat');
+        $user->jenis_kelamin = $request->get('jenis_kelamin');
+        $user->tanggal_lahir = $request->get('tanggal_lahir');
+        $user->nomor_telephon = $request->get('nomor_telephon');
+
+        $user->save();
+
+        return redirect()->route('users.edit',[$id])->with('status', 'Pengguna berhasil diubah');
     }
 
     /**
@@ -99,5 +113,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $user = \App\User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users.index')->with('status'. 'user berhasil dihaspus');
     }
 }
