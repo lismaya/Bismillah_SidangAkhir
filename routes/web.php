@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Spatie\Permission\Models\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Route::get('/', function () {
+//    $user = auth()->user();
+//    $role = Role::find(2);
+//     //dd($user);
+//   // auth()->user()->assignRole('admin');
+//  //$role->givePermissionTo('Periksa','Riwayat Periksa');
+//   // $user = auth()->user();
+//   //  $role = Role::find(1);
+//   // // // $role->givePermissionTo('Kelola Pengguna','Laporan');
+//     dd($user->can(['Periksa','Riwayat Periksa']));
+// });
 Route::get('/', function () {
     return view('auth.login');
 });
