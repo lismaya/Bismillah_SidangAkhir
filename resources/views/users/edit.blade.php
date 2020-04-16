@@ -1,6 +1,6 @@
 @extends('layouts.global')
 
-@section('title') Edit User @endsection
+@section('title') Edit Pengguna @endsection
 
 @section('content1')
 
@@ -60,10 +60,14 @@
         <div class="card-body">
           <div class="form-group">
             <label for="">Level Pengguna</label>
-            <br>
-            <input type="checkbox" name="level_id" value="level_id" >
-            <label >{{$user->level_id}}</label>
+            <select class="form-control select2" style="width: 100%;" name="level_id" value="{{$user->level_id}}">
+              <option selected="selected">Level Pengguna</option>
+              <option value="P01">Administrator</option>
+              <option value="P02">Dokter</option>
+              <option value="P03">Petugas</option>
+              <option value="P04">Apoteker</option>
 
+            </select>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>

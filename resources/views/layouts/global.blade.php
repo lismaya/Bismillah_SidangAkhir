@@ -54,7 +54,12 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+      <li class="nav-item dropdown">
+        <form action="{{route("logout")}}" method="POST">
+          @csrf
+          <button class="dropdown-item" style="cursor:pointer">Sign Out</button>
+        </form>
+      </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -111,18 +116,16 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-
-          <li class="nav-header">Admin</li>
+          @role('admin')
           <li class="nav-item">
             <a href="users" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Dashboard
+                Laporan
 
               </p>
             </a>
           </li>
-
           <li class="nav-item">
             <a href="users" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -132,6 +135,71 @@
               </p>
             </a>
           </li>
+
+          @endrole
+
+          @role('dokter')
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Periksa
+
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Riwayat Periksa
+
+              </p>
+            </a>
+          </li>
+          @endrole
+          @role('petugas')
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Daftar Pasien Hari Ini
+
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Pendaftaran
+
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Data Pasien
+
+              </p>
+            </a>
+          </li>
+          @endrole
+
+          @role('apoteker')
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Apoteker
+
+              </p>
+            </a>
+          </li>
+
+          @endrole
 
         </ul>
       </nav>
