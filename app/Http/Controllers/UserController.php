@@ -65,9 +65,6 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $user = \App\User::findOrFail($id);
-
-        return view('users.show', ['user' => $user]);
     }
 
     /**
@@ -104,7 +101,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('users.index',[$id])->with('status', 'Pengguna berhasil diubah');
+        return redirect()->route('users.edit',[$id])->with('status', 'Pengguna berhasil diubah');
     }
 
     /**
@@ -119,6 +116,6 @@ class UserController extends Controller
         $user = \App\User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('status'. 'user berhasil dihapus');
+        return redirect()->route('users.index')->with('status'. 'user berhasil dihaspus');
     }
 }
