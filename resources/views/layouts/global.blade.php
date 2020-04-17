@@ -155,7 +155,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../index.html" class="nav-link">
+                <a href="orangtua" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pasien Baru</p>
                 </a>
@@ -190,6 +190,16 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>@yield('judul')</h1>
+          </div>
+
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
     <!-- /.content-header -->
 

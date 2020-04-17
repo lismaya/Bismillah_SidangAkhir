@@ -24,4 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource("users","UserController");
 
-Route::get('/pendaftaranortu','OrtuController@index');
+Route::get('/orangtua','OrtuController@index');
+Route::post('/orangtua/tambah','OrtuController@create');
