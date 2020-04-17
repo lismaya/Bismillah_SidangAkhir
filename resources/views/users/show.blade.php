@@ -24,8 +24,19 @@
     </div>
 
     <h3 class="profile-username text-center">{{$user->name}}</h3>
+    <p class="text-muted text-center">{{$user->level->name}}</p>
+    <p class="text-muted text-center">
+      @if($user->status == "aktif")
+      <span class="badge badge-success">
+        {{$user->status}}
+      </span>
+      @else
+      <span class="badge badge-danger">
+        {{$user->status}}
+      </span>
+      @endif
+    </p>
 
-    <p class="text-muted text-center">{{$user->level_id}}</p>
 
     <div class="row">
       <div class="col-sm-6">
@@ -59,7 +70,7 @@
                 <b>Alamat</b>
                 <a class="float-right">{{$user->alamat}}</a>
               </li>
-              
+
             </ul>
 
         </div>

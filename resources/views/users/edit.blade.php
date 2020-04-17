@@ -62,10 +62,10 @@
             <label for="">Level Pengguna</label>
             <select class="form-control select2" style="width: 100%;" name="level_id" value="{{$user->level_id}}">
               <option selected="selected">Level Pengguna</option>
-              <option value="P01">Administrator</option>
-              <option value="P02">Dokter</option>
-              <option value="P03">Petugas</option>
-              <option value="P04">Apoteker</option>
+              <option value="1">Administrator</option>
+              <option value="2">Dokter</option>
+              <option value="3">Petugas</option>
+              <option value="4">Apoteker</option>
 
             </select>
           </div>

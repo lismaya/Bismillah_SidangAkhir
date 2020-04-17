@@ -54,7 +54,12 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+      <li class="nav-item dropdown">
+        <form action="{{route("logout")}}" method="POST">
+          @csrf
+        <button class="dropdown-item" style="cursor:pointer">Sign Out</button>
+        </form>
+      </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -115,20 +120,61 @@
           <li class="nav-header">Admin</li>
           <li class="nav-item">
             <a href="users" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon far fas fa-money-check-alt"></i>
               <p>
-                Dashboard
-
+                Laporan
               </p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="users" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon far fas fa-users"></i>
               <p>
                 Kelola Pengguna
+              </p>
+            </a>
+          </li>
 
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fas fa-paperclip"></i>
+              <p>
+                Daftar Pasien Hari Ini
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-swatchbook"></i>
+              <p>
+                Pendaftaran
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pasien Baru</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../index2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pasien Lama</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fas fa-book-medical"></i>
+              <p>
+                Data Pasien
               </p>
             </a>
           </li>

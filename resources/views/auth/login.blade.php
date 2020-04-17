@@ -1,14 +1,15 @@
 @extends('layouts.app')
+@section('title')Login @endsection
 
 @section('content')
 <div class="login-box">
   <div class="login-logo">
-    <a><b>LOGIN</b>Sistem Manjemen Klinik Anak</a>
+    <a><b>Sistem Manjemen Klinik </b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Silahkan login dengan email dan password yang telah didaftarakan</p>
 
       <form method="post" action="{{route('login')}}">
         @csrf
@@ -42,7 +43,7 @@
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
-                {{ __('Remember Me') }}
+                {{ __('Ingat Saya') }}
               </label>
             </div>
           </div>
@@ -60,7 +61,7 @@
       <p class="mb-1">
         @if (Route::has('password.request'))
             <a class="btn btn-link" href="{{ route('password.request') }}">
-                {{ __('Forgot Your Password?') }}
+                {{ __('Lupa Password?') }}
             </a>
         @endif
       </p>
