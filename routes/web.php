@@ -26,3 +26,6 @@ Route::resource("users","UserController");
 
 Route::get('/orangtua','OrtuController@index');
 Route::post('/orangtua/tambah','OrtuController@create');
+Route::get('/pasien/{id}','PasienController@index');
+Route::post('/pasien/tambah','PasienController@create');
+Route::get('/pelayanan','PelayananController@index');

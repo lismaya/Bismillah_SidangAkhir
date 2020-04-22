@@ -35,7 +35,8 @@ class OrtuController extends Controller
 
       $new_ortu->save();
 
-      return redirect('orangtua')->with('status','Data Orang Tua Berhasil Ditambahkan');
+      $id=$new_ortu->id;
+      return redirect('pasien/'.$id)->with('status','Data Orang Tua Berhasil Ditambahkan');
     }
 
     /**
@@ -92,5 +93,9 @@ class OrtuController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function exo(Request $request)
+    {
+      print_r($request->input());
     }
 }
