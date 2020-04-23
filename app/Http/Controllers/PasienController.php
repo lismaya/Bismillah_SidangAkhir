@@ -24,8 +24,9 @@ class PasienController extends Controller
       $new_pasien->tanggal_lahir= $request->get('tanggal_lahir');
 
       $new_pasien->save();
+      $id=$new_pasien->id;
 
-      return redirect('orangtua')->with('status','Data Pasien Berhasil Ditambahkan');
+      return redirect('pelayanan/'.$id)->with('status','Data Pasien Berhasil Ditambahkan');
 
     }
 }
