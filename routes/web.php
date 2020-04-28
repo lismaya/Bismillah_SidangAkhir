@@ -30,3 +30,7 @@ Route::get('/pasien/{id}','PasienController@index');
 Route::post('/pasien/tambah','PasienController@create');
 Route::get('/pelayanan/{id}','PelayananController@index');
 Route::post('/pasien/pemeriksaan','PelayananController@create');
+Route::get('/exo/{id}','PelayananController@exo');
+
+Route::get('/registrasi/{id}','PelayananController@registrasi');
+Route::post('/pasien/registrasiulang','PelayananController@registrasiUlang');

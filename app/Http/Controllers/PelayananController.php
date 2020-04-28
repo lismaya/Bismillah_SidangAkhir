@@ -23,10 +23,29 @@ class PelayananController extends Controller
 
       $new_pelayanan->save();
 
-      $id = $new_pelayanan->id;
+      $id = $new_pelayanan->id_pasien;
 
 
-      return redirect('registrasiulang/'.$id)->with('status','Data Pasien Berhasil Ditambahkan');
+      return redirect('registrasi/'.$id)->with('status','Data Pasien Berhasil Ditambahkan');
 
+    }
+    public function registrasi($id)
+    {
+      //return "exo";
+      $pasien = \App\Pasien::findOrFail($id);
+       return view("registrasi_ulang", ['pasien'=>$pasien]);
+      //$pendaftaran_ulang = \App\Rekammedik::findOrFail($id);
+    }
+    public function registrasiUlang( Request $request)
+    {
+      $new_rekam_medik_pasien = new \App\Rekammedik;
+
+      $new_rekam_medik_pasien->id_pasien=$request->get('id_pasien');
+      $new_rekam_medik_pasien->berat_badan=$request->get('berat_badan');
+      $new_rekam_medik_pasien->tinggi_badan=$request->get('tinggi_badan');
+      $new_rekam_medik_pasien->lingkar_kepala=$request->get('lingkar_kepala');
+      $new_rekam_medik_pasien->save();
+
+      return "berhasil";
     }
 }
