@@ -34,3 +34,5 @@ Route::get('/exo/{id}','PelayananController@exo');
 
 Route::get('/registrasi/{id}','PelayananController@registrasi');
 Route::post('/pasien/registrasiulang','PelayananController@registrasiUlang');
+
+Route::get('/pasienLama','PasienController@dataPasien');

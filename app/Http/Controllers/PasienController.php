@@ -29,4 +29,10 @@ class PasienController extends Controller
       return redirect('pelayanan/'.$id)->with('status','Data Pasien Berhasil Ditambahkan');
 
     }
+    public function dataPasien()
+    {
+      $pasien = \App\Pasien::paginate(10);
+      return view("pendaftaran.data_pasien", ['pasien'=>$pasien]);
+
+    }
 }
