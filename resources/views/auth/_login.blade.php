@@ -11,7 +11,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Silahkan login dengan email dan password yang telah didaftarakan</p>
 
-      <form method="post" action="/postlogin" >
+      <form method="post" action="{{route('login')}}">
         @csrf
         <div class="input-group mb-3">
           <input id="email" type="email"  placeholder="{{ __('E-Mail Address') }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

@@ -16,23 +16,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/login','AuthController@login')->name('login');
+Route::post('/postlogin','AuthController@postlogin');
+Route::get('/logout','AuthController@logout');
 
-Auth::routes();
+Route::group(['middleware'=>'auth'],function(){
 
-Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/bts', 'HomeController@index')->name('home');
+  Route::get('/dashboard','DashboardController@index')->middleware('auth');
 
-Route::resource("users","UserController");
+  //Auth::routes();
 
-Route::get('/orangtua','OrtuController@index');
-Route::post('/orangtua/tambah','OrtuController@create');
-Route::get('/pasien/{id}','PasienController@index');
-Route::post('/pasien/tambah','PasienController@create');
-Route::get('/pelayanan/{id}','PelayananController@index');
-Route::post('/pasien/pemeriksaan','PelayananController@create');
-Route::get('/exo/{id}','PelayananController@exo');
+  Route::get('/home', 'HomeController@index')->name('home');
+  //Route::get('/bts', 'HomeController@index')->name('home');
 
-Route::get('/registrasi/{id}','PelayananController@registrasi');
-Route::post('/pasien/registrasiulang','PelayananController@registrasiUlang');
+  Route::resource("users","UserController");
 
-Route::get('/pasienLama','PasienController@dataPasien');
+  Route::get('/orangtua','OrtuController@index');
+  Route::post('/orangtua/tambah','OrtuController@create');
+  Route::get('/pasien/{id}','PasienController@index');
+  Route::post('/pasien/tambah','PasienController@create');
+  Route::get('/pelayanan/{id}','PelayananController@index');
+  Route::post('/pasien/pemeriksaan','PelayananController@create');
+  Route::get('/exo/{id}','PelayananController@exo');
+
+  Route::get('/registrasi/{id}','PelayananController@registrasi');
+  Route::post('/pasien/registrasiulang','PelayananController@registrasiUlang');
+
+  Route::get('/pasienLama','PasienController@dataPasien');
+});
