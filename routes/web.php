@@ -20,17 +20,19 @@ Route::get('/login','AuthController@login')->name('login');
 Route::post('/postlogin','AuthController@postlogin');
 Route::get('/logout','AuthController@logout');
 
-Route::group(['middleware'=>'auth'],function(){
+Route::get('/home', 'HomeController@index')->name('home');
 
-  Route::get('/dashboard','DashboardController@index')->middleware('auth');
-
-  //Auth::routes();
-
-  Route::get('/home', 'HomeController@index')->name('home');
-  //Route::get('/bts', 'HomeController@index')->name('home');
-
+//Admin Master
+Route::group(['middleware'=>['auth','checkLevel:1']],function(){
   Route::resource("users","UserController");
+});
 
+//Dokter
+Route::group(['middleware'=>['auth','checkLevel:2']],function(){
+
+});
+//Petugas
+Route::group(['middleware'=>['auth','checkLevel:3']],function(){
   Route::get('/orangtua','OrtuController@index');
   Route::post('/orangtua/tambah','OrtuController@create');
   Route::get('/pasien/{id}','PasienController@index');
@@ -38,9 +40,15 @@ Route::group(['middleware'=>'auth'],function(){
   Route::get('/pelayanan/{id}','PelayananController@index');
   Route::post('/pasien/pemeriksaan','PelayananController@create');
   Route::get('/exo/{id}','PelayananController@exo');
-
   Route::get('/registrasi/{id}','PelayananController@registrasi');
   Route::post('/pasien/registrasiulang','PelayananController@registrasiUlang');
-
   Route::get('/pasienLama','PasienController@dataPasien');
+});
+
+//Apoteker
+Route::group(['middleware'=>['auth','checkLevel:4']],function(){
+
+});
+Route::group(['middleware'=>['auth','checkLevel:1,2,3,4']],function(){
+  Route::get('/dashboard','DashboardController@index');
 });

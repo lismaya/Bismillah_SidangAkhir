@@ -112,6 +112,7 @@
 
 
           <li class="nav-header">Admin</li>
+          @if(auth()->user()->level_id == 1)
           <li class="nav-item">
             <a href="users" class="nav-link">
               <i class="nav-icon far fas fa-money-check-alt"></i>
@@ -129,7 +130,28 @@
               </p>
             </a>
           </li>
+          @endif
 
+          @if(auth()->user()->level_id == 2)
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fas fa-paperclip"></i>
+              <p>
+                Pemeriksaan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fas fa-paperclip"></i>
+              <p>
+                Riwayat Pemeriksaan
+              </p>
+            </a>
+          </li>
+          @endif
+
+          @if(auth()->user()->level_id == 3)
           <li class="nav-item">
             <a href="users" class="nav-link">
               <i class="nav-icon far fas fa-paperclip"></i>
@@ -163,7 +185,6 @@
 
             </ul>
           </li>
-
           <li class="nav-item">
             <a href="users" class="nav-link">
               <i class="nav-icon far fas fa-book-medical"></i>
@@ -172,6 +193,25 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fas fa-book-medical"></i>
+              <p>
+                Data Orang Tua Pasien
+              </p>
+            </a>
+          </li>
+          @endif
+          @if(auth()->user()->level_id == 4)
+          <li class="nav-item">
+            <a href="users" class="nav-link">
+              <i class="nav-icon far fas fa-book-medical"></i>
+              <p>
+                Resep Masuk
+              </p>
+            </a>
+          </li>
+          @endif
 
         </ul>
       </nav>
