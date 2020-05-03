@@ -44,6 +44,8 @@ Route::group(['middleware'=>['auth','checkLevel:3']],function(){
   Route::get('/registrasi/{id}','PelayananController@registrasi');
   Route::post('/pasien/registrasiulang','PelayananController@registrasiUlang');
   Route::get('/pasienLama','PasienController@dataPasien');
+  Route::get('/pasien','PasienController@semuaDatapasien');
+
 });
 
 //Apoteker

@@ -35,4 +35,9 @@ class PasienController extends Controller
       return view("pendaftaran.data_pasien", ['pasien'=>$pasien]);
 
     }
+    public function semuaDatapasien()
+    {
+      $pasien = \App\Pasien::paginate(10);
+      return view("semuadatapasien",['pasien' => $pasien]);
+    }
 }

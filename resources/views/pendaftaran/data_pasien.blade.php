@@ -1,6 +1,5 @@
 @extends("layouts.global")
-  @section("title") Data Pasien @endsection
-  @section("judul") Data Pasien @endsection
+  @section("title") Data Pengguna Aplikasi Sistem Manajemen Klinik Anak  @endsection
 
     @section("content1")
     <div class="row">
@@ -10,7 +9,7 @@
 
         <div class="card">
           <div class="card-header">
-            <h2 class="card-title" ><b>Data Pasien K</b></h2>
+            <h2 class="card-title" ><b>PENGGUNA APLIKASI SISTEM MANAJEMEN KLINIK ANAK</b></h2>
             <br>
             <h3 class="card-title">dr. Naufal Baras, M.Cs.,Sp.A</h3>
 
@@ -44,19 +43,19 @@
                 <th>Nama</th>
                 <th>Jenis Kelamin</th>
                 <th>Alamat</th>
-                <th></th>
+                <th>Jabatan</th>
                 <th>Status</th>
                 <th>Aksi</th>
               </tr>
               </thead>
               <tbody>
                 <?php $no = 1;?>
-                @foreach($pasien as $pass)
+
               <tr>
-                <td>{{$no++}}</td>
-                
+              <td></td>
+              <td></td>
               </tr>
-              @endforeach
+              
 
 
             </table>
@@ -68,4 +67,11 @@
       </div>
       <!-- /.col -->
     </div>
+    <!-- Modal -->
+
+</div>
+</div>
+</div>
+
+
     @endsection
