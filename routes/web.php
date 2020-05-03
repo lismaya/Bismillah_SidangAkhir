@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Admin Master
 Route::group(['middleware'=>['auth','checkLevel:1']],function(){
   Route::resource("users","UserController");
+  Route::post('/user/{id}/edit','UserController@editProfile');
 });
 
 //Dokter

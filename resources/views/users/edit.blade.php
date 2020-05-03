@@ -60,12 +60,11 @@
         <div class="card-body">
           <div class="form-group">
             <label for="">Level Pengguna</label>
-            <select class="form-control select2" style="width: 100%;" name="level_id" value="{{$user->level_id}}">
-              <option selected="selected">Level Pengguna</option>
-              <option value="1">Administrator</option>
-              <option value="2">Dokter</option>
-              <option value="3">Petugas</option>
-              <option value="4">Apoteker</option>
+            <select class="form-control select2" style="width: 100%;" name="level_id">
+              <option value="1" @if($user->level_id == '1' ) selected @endif >Administrator</option>
+              <option value="2" @if($user->level_id == '2' ) selected @endif>Dokter</option>
+              <option value="3" @if($user->level_id == '3' ) selected @endif>Petugas</option>
+              <option value="4" @if($user->level_id == '4' ) selected @endif>Apoteker</option>
 
             </select>
           </div>

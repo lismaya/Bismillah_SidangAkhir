@@ -39,12 +39,11 @@
                   <input type="number" name="no_telp" class="form-control" id="InputNama" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                  <label for="InputNama">Alamat</label>
-                  <textarea name="alamat" rows="3" cols="43"></textarea>
+                  <label>Alamat</label>
+                  <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                 </div>
               </div>
               <div class="col-sm-6">
-
                 <div class="form-group">
                   <label for="InputNama">Email</label>
                   <input type="email" name="email" class="form-control" id="InputNama" placeholder="Enter email">
@@ -63,18 +62,11 @@
                 </div>
               </div>
             </div>
-
-
-            <div class="form-group mb-0">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-              </div>
-            </div>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary float-right">Simpan</button>
+
           </div>
         </form>
 

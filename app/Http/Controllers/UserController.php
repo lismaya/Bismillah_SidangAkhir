@@ -66,7 +66,6 @@ class UserController extends Controller
     {
         //
         $user = \App\User::findOrFail($id);
-
         return view('users.show', ['user' => $user]);
     }
 
@@ -120,5 +119,26 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('users.index')->with('status'. 'user berhasil dihapus');
+    }
+    public function editProfile(Request $request, $id)
+    {
+        //dd($request->all());
+      $user = \App\User::findOrFail($id);
+    //  $user->update($request->all());
+
+
+      $user->name = $request->get('name');
+      $user->level_id = $request->get('level_id');
+      $user->alamat = $request->get('alamat');
+      $user->jenis_kelamin = $request->get('jenis_kelamin');
+      $user->tanggal_lahir = $request->get('tanggal_lahir');
+      $user->nomor_telephon = $request->get('nomor_telephon');
+      $user->save();
+      if($request->hasFile('avatar')){
+        $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
+        $user->avatar = $request->file('avatar')->getClientOriginalName();
+        $user->save();
+      }
+       return redirect()->route('users.show',[$id])->with('status', 'Pengguna berhasil diubah');
     }
 }
