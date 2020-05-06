@@ -23,6 +23,17 @@ class OrtuController extends Controller
      */
     public function create(Request $request)
     {
+      //validate
+      $this->validate($request,[
+          'nama_ayah' => 'required',
+          'nama_ibu' =>'required',
+          'alamat' => 'required',
+          'email' => 'required|email|unique:orangtuas',
+          'username' => 'required',
+          'password' => 'required'
+
+      ]);
+
       $new_ortu = new \App\Orangtua;
 
       $new_ortu->nama_ayah= $request->get('nama_ayah');

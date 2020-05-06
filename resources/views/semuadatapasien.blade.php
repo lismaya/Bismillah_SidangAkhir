@@ -1,6 +1,5 @@
 @extends("layouts.global")
-  @section("title") Data Pengguna Aplikasi Sistem Manajemen Klinik Anak  @endsection
-
+  @section("title") Data Pasien @endsection
     @section("content1")
     <section class="content">
       <div class="row">
@@ -10,7 +9,10 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Pasien</h3>
+              <h2 class="card-title" ><b>DATA PASIEN</b></h2>
+              <br>
+              <h3 class="card-title">dr. Naufal Baras, M.Cs.,Sp.A</h3>
+
             </div>
             <!-- /.card-header -->
             <div class="card-body">
