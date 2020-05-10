@@ -14,6 +14,10 @@ class PelayananController extends Controller
 
     public function create(Request $request)
     {
+      $this->validate($request,[
+        'tgl_periksa' => 'required'
+      ]);
+
       $new_pelayanan = new \App\Pelayanan;
 
       $new_pelayanan->id_pasien= $request->get('id_pasien');
