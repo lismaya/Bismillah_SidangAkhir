@@ -198,7 +198,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="orangtua" class="nav-link">
+            <a href="dataorangtua" class="nav-link">
               <i class="nav-icon far fas fa-book-medical"></i>
               <p>
                 Data Orang Tua Pasien
