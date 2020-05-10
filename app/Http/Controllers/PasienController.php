@@ -15,9 +15,14 @@ class PasienController extends Controller
     }
     public function create(Request $request)
     {
+      $this->validate($request,[
+        'nama' => 'required',
+        'tempat_lahir' => 'required',
+        'tanggal_lahir' => 'required'
+      ]);
       $new_pasien = new \App\Pasien;
 
-      $new_pasien->id_orangtua= $request->get('id_orangtua');
+      $new_pasien->orangtua_id= $request->get('orangtua_id');
       $new_pasien->nama= $request->get('nama');
       $new_pasien->jenis_kelamin= $request->get('jenis_kelamin');
       $new_pasien->tempat_lahir= $request->get('tempat_lahir');

@@ -3,6 +3,7 @@
 
 
     @section("content1")
+
     <div class="card card-success">
       <div class="card-header">
         <h3 class="card-title">   <i class="fas fa-user-cog"></i> Tambah Data Orang Tua</h3>

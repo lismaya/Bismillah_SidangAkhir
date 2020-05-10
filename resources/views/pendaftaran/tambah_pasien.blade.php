@@ -3,72 +3,142 @@
   @section("judul") Tambah Pasien @endsection
 
     @section("content1")
-    <div class="callout callout-info">
-      <h5><i class="fas fa-info"></i> Data Orang Tua:</h5>
-      nama ayah : {{$ortu->nama_ayah}} <br>
-      nama ibu  : {{$ortu->nama_ibu}}
-    </div>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
 
-    <div class="invoice p-3 mb-3">
-      <!-- title row -->
-      <div class="row">
-        <div class="col-12">
-          <h4>
-            <i class="fas fa-user-cog"></i> Pasien
-            <small class="float-right"><?php echo date('Y-m-d H:i:s'); ?></small>
-          </h4>
-        </div>
-        <!-- /.col -->
-      </div>
-      @if(session('status'))
-        <div class="alert alert-success">
-          {{session('status')}}
-
-        </div>
-      @endif
-
-        <form role="form" id="quickForm" action="/pasien/tambah" method="post">
-          @csrf
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-6">
-
-                  <input type="text" name="id_orangtua" class="form-control" id="InputNama" placeholder="Enter nama ayah" value="{{$ortu->id}}" hidden>
-                  <div class="form-group">
-                    <label for="InputNama">Nama </label>
-                    <input type="text" name="nama" class="form-control" id="InputNama" placeholder="Enter nama ayah">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Jenis Kelamin</label>
-                    <select class="form-control select2" style="width: 100%;" name="jenis_kelamin">
-                      <option selected="selected">Jenis Kelamin</option>
-                      <option value="Perempuan">Perempuan</option>
-                      <option value="Laki-laki">Laki-laki</option>
-                    </select>
-                  </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="InputNama">Tempat Lahir</label>
-                  <input type="text" name="tempat_lahir" class="form-control" id="InputNama" placeholder="Enter tempat lahir">
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="{{asset('images/default.jpg')}}"
+                       alt="User profile picture">
                 </div>
-                <div class="form-group">
-                  <label for="InputNama">Tanggal Lahir</label>
-                  <input type="date" name="tanggal_lahir" class="form-control" id="InputNama" >
-                </div>
+
+                <h3 class="profile-username text-center">{{$ortu->nama_ayah}}</h3>
+
               </div>
+              <!-- /.card-body -->
             </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Data Orang Tua</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Nama Ibu</strong>
+
+                <p class="text-muted">{{$ortu->nama_ibu}}</p>
+                <hr>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Nomor Telepon/HP</strong>
+
+                <p class="text-muted">{{$ortu->no_telp}}</p>
+                <hr>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Email</strong>
+
+                <p class="text-muted">{{$ortu->email}}</p>
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
+
+                <p class="text-muted">{{$ortu->alamat}}</p>
+
+                <hr>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Tambah Data Anak</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                @if(session('status'))
+                  <div class="toastrDefaultSuccess">
+                    {{session('status')}}
+
+                  </div>
+                @endif
+                <div class="tab-content">
+
+                  <!-- /.tab-pane -->
+
+                    <!-- The timeline -->
+
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane" id="settings" >
+                    <form role="form" id="quickForm" action="/pasien/tambah" method="post">
+                      @csrf
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-6">
+
+                              <input type="text" name="orangtua_id" class="form-control" id="InputNama" placeholder="Enter nama anak" value="{{$ortu->id}}" >
+                              <div class="form-group">
+                                <label for="InputNama">Nama </label>
+                                <input type="text" name="nama" class="form-control {{$errors->has('nama') ? 'is-invalid' : ''}}" id="InputNama" placeholder="Enter nama" value="{{old('nama')}}">
+                                @if($errors->has('nama'))
+                                <span class="help-block">{{$errors->first('nama')}}</span>
+                                @endif
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Jenis Kelamin</label>
+                                <select class="form-control select2" style="width: 100%;" name="jenis_kelamin">
+                                  <option selected="selected">Jenis Kelamin</option>
+                                  <option value="Perempuan">Perempuan</option>
+                                  <option value="Laki-laki">Laki-laki</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="InputNama">Tempat Lahir</label>
+                              <input type="text" name="tempat_lahir" class="form-control {{$errors->has('tempat_lahir') ? 'is-invalid' : ''}}" id="InputNama" placeholder="Enter tempat lahir" {{old('tempat_lahir')}}>
+                              @if($errors->has('tempat_lahir'))
+                              <span class="help-block">{{$errors->first('tempat_lahir')}}</span>
+                              @endif
+                            </div>
+                            <div class="form-group">
+                              <label for="InputNama">Tanggal Lahir</label>
+                              <input type="date" name="tanggal_lahir" class="form-control {{$errors->has('tanggal_lahir') ? 'is-invalid' : ''}}" id="InputNama" {{old('tanggal_lahir')}}>
+                              @if($errors->has('tanggal_lahir'))
+                              <span class="help-block">{{$errors->first('tanggal_lahir')}}</span>
+                              @endif
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.card-body -->
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </form>
+
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
           </div>
-        </form>
-
-
-      <!-- info row -->
-
-      <!-- this row will not appear when printing -->
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
 
     </div>
 
