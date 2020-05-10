@@ -42,6 +42,10 @@ class PelayananController extends Controller
     }
     public function registrasiUlang( Request $request)
     {
+      $this->validate($request,[
+        'berat_badan' => 'required'
+      ]);
+
       $new_rekam_medik_pasien = new \App\Rekammedik;
 
       $new_rekam_medik_pasien->id_pasien=$request->get('id_pasien');
