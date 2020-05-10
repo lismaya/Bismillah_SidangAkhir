@@ -42,7 +42,7 @@
                   <td>{{$pas->orangtua->alamat}}</td>
                   <td>{{$pas->tanggal_lahir}}</td>
                   <td>
-                    <a class="btn btn-info text-white btn-sm" href="/pasien/{{$pas->id}}/detail">Detail</a>
+                    <a class="btn btn-warning text-white btn-sm" href="/pasien/{{$pas->id}}/daftarlayanan">Daftar Layanan</a>
 
                   </td>
                 </tr>

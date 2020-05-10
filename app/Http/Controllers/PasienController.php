@@ -37,12 +37,18 @@ class PasienController extends Controller
     public function dataPasien()
     {
       $pasien = \App\Pasien::paginate(10);
-      return view("pendaftaran.data_pasien", ['pasien'=>$pasien]);
+      return view("pendaftaran.pasien_lama", ['pasien'=>$pasien]);
 
     }
     public function semuaDatapasien()
     {
       $pasien = \App\Pasien::paginate(10);
       return view("semuadatapasien",['pasien' => $pasien]);
+    }
+
+    public function detailPasien($id)
+    {
+      $pasien = \App\Pasien::find($id);
+      return view('pasien.detailpasien',['pasien' =>$pasien]);
     }
 }

@@ -181,7 +181,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pasienLama" class="nav-link">
+                <a href="pasienlama" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pasien Lama</p>
                 </a>
