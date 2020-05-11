@@ -85,7 +85,7 @@
                         <div class="row">
                           <div class="col-sm-6">
 
-                              <input type="text" name="orangtua_id" class="form-control" id="InputNama" placeholder="Enter nama anak" value="{{$ortu->id}}" >
+                              <input type="text" name="orangtua_id" class="form-control" id="InputNama" placeholder="Enter nama anak" value="{{$ortu->id}}" hidden>
                               <div class="form-group">
                                 <label for="InputNama">Nama </label>
                                 <input type="text" name="nama" class="form-control {{$errors->has('nama') ? 'is-invalid' : ''}}" id="InputNama" placeholder="Enter nama" value="{{old('nama')}}">

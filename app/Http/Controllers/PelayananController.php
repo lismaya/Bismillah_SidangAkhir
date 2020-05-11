@@ -54,6 +54,7 @@ class PelayananController extends Controller
       $new_rekam_medik_pasien->lingkar_kepala=$request->get('lingkar_kepala');
       $new_rekam_medik_pasien->save();
 
-      return "berhasil";
+      return redirect('daftarpasienhariini')->with('status','Data Pasien Berhasil Ditambahkan');
+
     }
 }

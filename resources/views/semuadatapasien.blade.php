@@ -32,6 +32,9 @@
 
                 <tbody>
                   <?php $no = 1; ?>
+
+                  <?php $hariini = new DateTime; ?>
+
                   @foreach($pasien as $pas)
                 <tr>
                   <td>{{$no++}}</td>
@@ -40,7 +43,7 @@
                   <td>{{$pas->orangtua->nama_ibu}}</td>
                   <td>{{$pas->jenis_kelamin}}</td>
                   <td>{{$pas->orangtua->alamat}}</td>
-                  <td>{{$pas->tanggal_lahir}}</td>
+                  <td>{{$pas->tanggal_lahir}} tahun</td>
                   <td>
                     <a class="btn btn-info text-white btn-sm" href="/pasien/{{$pas->id}}/detail">Detail</a>
 

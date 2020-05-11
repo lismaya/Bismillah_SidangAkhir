@@ -4,13 +4,12 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo">
-    <a><b>Sistem Manjemen Klinik </b></a>
+
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Silahkan login dengan email dan password yang telah didaftarakan</p>
-
+    <div class="card-body login-card-body text-center">
+        <img src="{{url('images/logo.jpg')}}" class="login-box-msg" alt="SIMEKIA Logo" class="">
       <form method="post" action="/postlogin" >
         @csrf
         <div class="input-group mb-3">

@@ -43,6 +43,7 @@ class PasienController extends Controller
     public function semuaDatapasien()
     {
       $pasien = \App\Pasien::all();
+
       return view("semuadatapasien",['pasien' => $pasien]);
     }
 
@@ -50,5 +51,9 @@ class PasienController extends Controller
     {
       $pasien = \App\Pasien::find($id);
       return view('pasien.detailpasien',['pasien' =>$pasien]);
+    }
+    public function daftarPasienhariini()
+    {
+      return view('pasien.daftarpasienhariini');
     }
 }

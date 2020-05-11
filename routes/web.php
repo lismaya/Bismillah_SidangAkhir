@@ -43,6 +43,7 @@ Route::group(['middleware'=>['auth','checkLevel:3']],function(){
   Route::get('/exo/{id}','PelayananController@exo');
   Route::get('/registrasi/{id}','PelayananController@registrasi');
   Route::post('/pasien/registrasiulang','PelayananController@registrasiUlang');
+
   // menu pendaftaran -> pasien lama
   Route::get('/pasienlama','PasienController@dataPasien');
   Route::get('pasien/{id}/daftarlayanan','PelayananController@index');
@@ -52,6 +53,9 @@ Route::group(['middleware'=>['auth','checkLevel:3']],function(){
   //Menu Data Orang Tua Pasien
   Route::get('/dataorangtua','OrtuController@dataOrangtua');
   Route::get('/orangtua/{id}/detail','OrtuController@detailOrangtua');
+  //Meni Data Pasien Hari Ini
+  Route::get('/daftarpasienhariini','PasienController@daftarPasienhariini');
+
 
 
 
