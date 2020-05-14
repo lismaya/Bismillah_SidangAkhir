@@ -4,7 +4,7 @@
   @section("content1")
   <div class="card card-warning">
     <div class="card-header">
-      <h3 class="card-title">General Elements</h3>
+      <h3 class="card-title">Pendaftaran Layanan</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -40,7 +40,7 @@
             <div class="col-sm-10">
               <select class="form-control select2" style="width: 100%;" name="id_status">
                 <option selected="selected">Jenis Pelayanan</option>
-                <option value="1">Pemeriksaan</option>
+                <option value="1">Pemeriksaan Kesehatan</option>
                 <option value="2">Imunisasi</option>
               </select>
             </div>
@@ -48,7 +48,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-          <button type="submit" class="btn btn-warning">Simpan</button>
+          <button type="submit" class="btn btn-warning">Daftar</button>
         </div>
         <!-- /.card-footer -->
       </form>

@@ -40,7 +40,7 @@
 
             <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
 
-            <p class="text-muted">exoooo</p>
+            <p class="text-muted">{{$pasien->orangtua->alamat}}</p>
 
             <hr>
           </div>
@@ -69,56 +69,83 @@
 
               <!-- /.tab-pane -->
               <div class="active tab-pane" id="settings" >
-                <form id="demo-form2" enctype="multipart/form-data" action="/pasien/registrasiulang" method="post" data-parsley-validate class="form-horizontal form-label-left">
-                  @csrf
-                  <div class="card-body">
-                    <input type="text" name="id_pasien" value="{{$pasien->id}}" hidden>
-                    <div class="form-group row">
-                      <label for="nama_pasien" class="col-sm-2 col-form-label">Nama pasien</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nama_pasien" placeholder="Email" value="{{$pasien->nama}}" disabled>
+
+                  <!-- The timeline -->
+                  <div class="timeline timeline-inverse">
+                    <!-- timeline time label -->
+
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <div>
+                      <i class="fas fa-user bg-info"></i>
+
+                      <div class="timeline-item">
+
+
+                        <h3 class="timeline-header"><a href="#">Nama Lengkap</a></h3>
+
+                        <div class="timeline-body">
+                          {{$pasien->nama}}
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Tempat, Tanggal Lahir</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword3" placeholder="Password" value="{{$pasien->tempat_lahir}},{{$pasien->tanggal_lahir}}" disabled>
+
+                      <div class="timeline-item">
+
+
+                        <h3 class="timeline-header"><a href="#">Jenis Kelamin</a></h3>
+
+                        <div class="timeline-body">
+                          {{$pasien->jenis_kelamin}}
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="tampiljenisKelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="tampiljenisKelamin" placeholder="Password" value="{{$pasien->jenis_kelamin}}" disabled>
+                      <div class="timeline-item">
+
+
+                        <h3 class="timeline-header"><a href="#">Tanggal Lahir</a></h3>
+
+                        <div class="timeline-body">
+                          {{$pasien->tanggal_lahir}}
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputBeratbadan" class="col-sm-2 col-form-label">Berat Badan</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control {{$errors->has('berat_badan') ? 'is-invalid' : ''}}" id="inputBeratbadan" name="berat_badan" placeholder="Berat Badan" >
-                        @if($errors->has('berat_badan'))
-                        <span class="help-block">{{$errors->first('berat_badan')}}</span>
-                        @endif
+                      <div class="timeline-item">
+
+
+                        <h3 class="timeline-header"><a href="#">Umur</a></h3>
+
+                        <div class="timeline-body">
+                          <?php $tanggal = new DateTime($pasien->tanggal_lahir);
+                                $today = new DateTime('today');
+                                $y=$today->diff($tanggal)->y;
+                                $m=$today->diff($tanggal)->m;
+                                $d=$today->diff($tanggal)->d;
+                           ?>
+                          {{$y." Tahun ".$m." Bulan ".$d." Hari "}}
+
+                        </div>
                       </div>
+
+
+
+
                     </div>
-                    <div class="form-group row">
-                      <label for="inputBeratbadan" class="col-sm-2 col-form-label">Tinggi Badan</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputBeratbadan" name="tinggi_badan" placeholder="Tinggi Badan" >
-                      </div>
+                    <div>
+                      <i class="far fa-clock bg-gray"></i>
                     </div>
-                    <div class="form-group row">
-                      <label for="inputBeratbadan" class="col-sm-2 col-form-label">Lingkar Kepala</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputBeratbadan" name="lingkar_kepala" placeholder="Lingkar Kepala" >
-                      </div>
-                    </div>
+
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+
+                    <!-- END timeline item -->
+                    <!-- timeline time label -->
+
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+
+                    <!-- END timeline item -->
                   </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-info">Simpan</button>
-                  </div>
-                  <!-- /.card-footer -->
-                </form>
 
 
               </div>

@@ -43,7 +43,15 @@
                   <td>{{$pas->orangtua->nama_ibu}}</td>
                   <td>{{$pas->jenis_kelamin}}</td>
                   <td>{{$pas->orangtua->alamat}}</td>
-                  <td>{{$pas->tanggal_lahir}} tahun</td>
+                  <td>
+                    <?php $tanggal = new DateTime($pas->tanggal_lahir);
+                          $today = new DateTime('today');
+                          $y=$today->diff($tanggal)->y;
+                          $m=$today->diff($tanggal)->m;
+                          $d=$today->diff($tanggal)->d;
+                     ?>
+                    {{$y." Tahun ".$m." Bulan ".$d." Hari "}}
+                  </td>
                   <td>
                     <a class="btn btn-info text-white btn-sm" href="/pasien/{{$pas->id}}/detail">Detail</a>
 
