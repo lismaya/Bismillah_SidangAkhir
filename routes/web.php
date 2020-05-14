@@ -53,6 +53,8 @@ Route::group(['middleware'=>['auth','checkLevel:3']],function(){
   //Menu Data Orang Tua Pasien
   Route::get('/dataorangtua','OrtuController@dataOrangtua');
   Route::get('/orangtua/{id}/detail','OrtuController@detailOrangtua');
+  Route::post('/orangtua/tambahanak','PasienController@tambahAnak');
+
   //Meni Data Pasien Hari Ini
   Route::get('/daftarpasienhariini','PasienController@daftarPasienhariini');
 

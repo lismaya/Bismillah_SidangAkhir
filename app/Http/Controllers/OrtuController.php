@@ -117,6 +117,7 @@ class OrtuController extends Controller
     public function detailOrangtua($id)
     {
       $ortu = \App\Orangtua::find($id);
-      return view('orangtua.detailortu',['ortu' => $ortu]);
+      $anak = \DB::table('pasiens')->where('orangtua_id',$id)->get();
+      return view('orangtua.detailortu',['ortu' => $ortu,'anak'=>$anak]);
     }
 }
