@@ -1,5 +1,5 @@
 @extends("layouts.global")
-  @section("title") Registrasi Ulang Pasien @endsection
+  @section("title") Pasien @endsection
   @section("content1")
 <section class="content">
   <div class="container-fluid">

@@ -109,11 +109,13 @@ class OrtuController extends Controller
     {
       print_r($request->input());
     }
+
     public function dataOrangtua()
     {
       $ortu = \App\Orangtua::all();
       return view('orangtua.data_orangtua',['ortu'=>$ortu]);
     }
+
     public function detailOrangtua($id)
     {
       $ortu = \App\Orangtua::find($id);

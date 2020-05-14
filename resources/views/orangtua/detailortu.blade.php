@@ -110,7 +110,7 @@
 
                                 </td>
                                 <td>
-                                  <a class="btn btn-info text-white btn-sm" href="">Detail</a>
+                                  <a class="btn btn-info text-white btn-sm" href="/pasien/{{$a->id}}/detail">Detail</a>
 
                                 </td>
                               </tr>
