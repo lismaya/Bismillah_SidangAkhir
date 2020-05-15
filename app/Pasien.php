@@ -12,4 +12,9 @@ class Pasien extends Model
       {
         return $this->belongsTo(Orangtua::class);
       }
+
+      public function pelayanan()
+      {
+        return $this->hasOne('App\Pelayanan');
+      }
 }

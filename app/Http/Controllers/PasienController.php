@@ -52,10 +52,17 @@ class PasienController extends Controller
       $pasien = \App\Pasien::find($id);
       return view('pasien.detailpasien',['pasien' =>$pasien]);
     }
+
+
     public function daftarPasienhariini()
     {
-      return view('pasien.daftarpasienhariini');
+      $today = new \DateTime('today');
+    
+      $pasienHariIni = \App\Pelayanan::where('tgl_periksa',$today)->get();
+      return view('pasien.daftarpasienhariini',[ 'pasienHariIni' => $pasienHariIni]);
     }
+
+
     public function tambahAnak(Request $request)
     {
       $this->validate($request,[
