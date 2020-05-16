@@ -122,4 +122,5 @@ class OrtuController extends Controller
       $anak = \DB::table('pasiens')->where('orangtua_id',$id)->get();
       return view('orangtua.detailortu',['ortu' => $ortu,'anak'=>$anak]);
     }
+
 }
