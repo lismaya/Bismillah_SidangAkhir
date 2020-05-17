@@ -11,7 +11,7 @@
       <form id="demo-form2" enctype="multipart/form-data" action="/pasien/pemeriksaan" method="post" data-parsley-validate class="form-horizontal form-label-left">
         @csrf
         <div class="card-body">
-          <input type="text" name="id_pasien" value="{{$pasien->id}}" hidden>
+          <input type="text" name="pasien_id" value="{{$pasien->id}}" hidden>
           <?php $no = 1;?>
           <input type="number" name="no_urut" value="{{$no++}}" hidden>
           <div class="form-group row">

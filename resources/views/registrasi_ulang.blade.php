@@ -76,7 +76,7 @@
                   <form id="demo-form2" enctype="multipart/form-data" action="/pasien/registrasiulang" method="post" data-parsley-validate class="form-horizontal form-label-left">
                     @csrf
                     <div class="card-body">
-                      <input type="text" name="id_pasien" value="{{$pasien->id}}" hidden>
+                      <input type="text" name="pasien_id" value="{{$pasien->id}}" hidden>
                       <div class="form-group row">
                         <label for="nama_pasien" class="col-sm-2 col-form-label">Nama pasien</label>
                         <div class="col-sm-10">

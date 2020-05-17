@@ -20,14 +20,14 @@ class PelayananController extends Controller
 
       $new_pelayanan = new \App\Pelayanan;
 
-      $new_pelayanan->id_pasien= $request->get('id_pasien');
+      $new_pelayanan->pasien_id= $request->get('pasien_id');
       $new_pelayanan->id_status= $request->get('id_status');
       $new_pelayanan->tgl_periksa= $request->get('tgl_periksa');
       $new_pelayanan->no_urut= $request->get('no_urut');
 
       $new_pelayanan->save();
 
-      $id = $new_pelayanan->id_pasien;
+      $id = $new_pelayanan->pasien_id;
 
 
       return redirect('registrasi/'.$id)->with('status','Data Pasien Berhasil Ditambahkan');
@@ -48,7 +48,7 @@ class PelayananController extends Controller
 
       $new_rekam_medik_pasien = new \App\Rekammedik;
 
-      $new_rekam_medik_pasien->id_pasien=$request->get('id_pasien');
+      $new_rekam_medik_pasien->pasien_id=$request->get('pasien_id');
       $new_rekam_medik_pasien->berat_badan=$request->get('berat_badan');
       $new_rekam_medik_pasien->tinggi_badan=$request->get('tinggi_badan');
       $new_rekam_medik_pasien->lingkar_kepala=$request->get('lingkar_kepala');
